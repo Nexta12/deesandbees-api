@@ -23,9 +23,9 @@ connectDB()
 
 const allowedOrigins = [
 
-   "https://www.happies.dataactions.com",
-   "https://happies.dataactions.com",
-   "http://happies.dataactions.com",
+   "https://www.deesandbees.revplusclient.com",
+   "https://deesandbees.revplusclient.com",
+   "http://deesandbees.revplusclient.com",
     process.env.FRONTEND_BASE_URL
   ];
   
@@ -45,7 +45,7 @@ const allowedOrigins = [
   
 
 app.get("/", (req, res) => {
-    res.send("Happies Server Running now")
+    res.send("Dees And Bees Server Running now")
 })
 
 

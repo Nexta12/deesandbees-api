@@ -15,7 +15,7 @@ module.exports = {
         html: OTPEmailTemplate(otpDetails),
         headers: {
           "List-Unsubscribe":
-            "<https://happies.com/unsubscribe>, <mailto:unsubscribe@deesandbees.com>",
+            "<https://deesandbees.com/unsubscribe>, <mailto:unsubscribe@deesandbees.com>",
         },
       };
 

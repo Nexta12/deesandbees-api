@@ -87,7 +87,7 @@ exports.OTPEmailTemplate = ({ name, otp }) => {
   <body>
     <div class="container">
       <div class="header">
-        <h1>Happies Verification</h1>
+        <h1>Dees And Bees Verification</h1>
       </div>
 
       <div class="content">

@@ -51,16 +51,16 @@ jobs:
             # nvm install 18
             # nvm use 18
 
-            echo "Changing directory to /www/wwwroot/api/captask"
-            if ! cd /www/wwwroot/api/happies; then
+            echo "Changing directory to /www/wwwroot/apis/deesApi"
+            if ! cd /www/wwwroot/apis/deesApi; then
               echo "Failed to change directory"
               exit 1
             fi
-            # echo "Reseting Local Changes"
-            #   if ! git reset --hard; then
-            #       echo "Failed to reset local changes"
-            #       exit 1;
-            #   fi
+            echo "Reseting Local Changes"
+              if ! git reset --hard; then
+                  echo "Failed to reset local changes"
+                  exit 1;
+              fi
             echo "Pulling latest code from origin/main"
             if ! git pull origin main; then
               echo "Failed to pull latest code"
