@@ -98,10 +98,10 @@ exports.OTPEmailTemplate = ({ name, otp }) => {
       </div>
 
       <div class="footer">
-        <p>© ${new Date().getFullYear()} Happies. All rights reserved.</p>
+        <p>© ${new Date().getFullYear()} Dees And Bees. All rights reserved.</p>
         <p>
           Need help? Contact us at 
-          <a href="mailto:support@happies.com">support@happies.com</a>
+          <a href="mailto:info@deesandbees.com">info@deesandbees.com</a>
         </p>
       </div>
     </div>
