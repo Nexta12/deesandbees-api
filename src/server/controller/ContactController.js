@@ -1,4 +1,5 @@
-const Contact = require("../models/ContactModel")
+const Contact = require("../models/ContactModel");
+const { sendNotificationEmail } = require("../services/emailCalls");
 
 module.exports = {
   //
@@ -28,6 +29,14 @@ module.exports = {
         message: message.trim(),
         address: address?.trim() || "",
         phone: phone?.trim() || "",
+      });
+
+      await sendNotificationEmail({
+        to: process.env.OFFICIAL_EMAIL,
+        name: "Admin",
+        subject: "New Message from Contact Form",
+        message:
+          "A new student has submitted an application. Please review it on the admin dashboard.",
       });
 
       res.status(201).json({
