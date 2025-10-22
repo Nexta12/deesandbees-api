@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 
 const User = require("../models/UserModel");
+const Testimonials = require("../models/Testimonials")
+const Contacts = require("../models/ContactModel")
 
 module.exports = {
   CreateUser: async (req, res) => {
@@ -56,7 +58,28 @@ module.exports = {
       });
     }
   },
+getStats: async (req, res) => {
+  try {
+  
+    const [totalUsers, totalTestimonials, totalMessages] = await Promise.all([
+      User.countDocuments(),
+      Testimonials.countDocuments(),
+      Contacts.countDocuments(),
+    ]);
 
+    const stats = { totalUsers, totalTestimonials, totalMessages };
+    return res.status(200).json({
+      message: "Statistics fetched successfully.",
+      stats,
+    });
+  } catch (error) {
+    console.error("Error fetching stats:", error);
+    return res.status(500).json({
+      message: "Internal server error while fetching stats.",
+      error: error.message,
+    });
+  }
+},
 
 
   EditUser: async (req, res) => {
