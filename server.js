@@ -23,9 +23,9 @@ connectDB()
 
 const allowedOrigins = [
 
-   "https://www.deesandbees.revplusclient.com",
-   "https://deesandbees.revplusclient.com",
-   "http://deesandbees.revplusclient.com",
+   "https://www.deesandbeesglobal.com",
+   "https://deesandbeesglobal.com",
+   "http://deesandbeesglobal.com",
     process.env.FRONTEND_BASE_URL
   ];
   
