@@ -62,7 +62,7 @@ getStats: async (req, res) => {
   try {
   
     const [totalUsers, totalTestimonials, totalMessages] = await Promise.all([
-      User.countDocuments(),
+      User.countDocuments({email: {$ne: process.env.OFFICIAL_EMAIL}}),
       Testimonials.countDocuments(),
       Contacts.countDocuments(),
     ]);
