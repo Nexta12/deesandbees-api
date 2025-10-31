@@ -44,38 +44,40 @@ jobs:
           key: ${{ secrets.SEVER_SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            set -e
+             set -e
+             echo "Loading NVM and Node environment..."
+             export NVM_DIR="$HOME/.nvm"
+             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-            # export NVM_DIR="$HOME/.nvm"
-            # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This grabs nvm
-            # nvm install 18
-            # nvm use 18
+             echo "Switching to Node 20..."
+             nvm use 20 || nvm install 20
 
-            echo "Changing directory to /www/wwwroot/apis/deesApi"
-            if ! cd /www/wwwroot/apis/deesApi; then
+             echo "Changing directory to /www/wwwroot/apis/deesApi"
+             if ! cd /www/wwwroot/apis/deesApi; then
               echo "Failed to change directory"
               exit 1
-            fi
-            echo "Reseting Local Changes"
+             fi
+             echo "Reseting Local Changes"
               if ! git reset --hard; then
                   echo "Failed to reset local changes"
                   exit 1;
               fi
-            echo "Pulling latest code from origin/main"
-            if ! git pull origin main; then
+             echo "Pulling latest code from origin/main"
+             if ! git pull origin main; then
               echo "Failed to pull latest code"
               exit 1
-            fi
-            echo "Installing dependencies"
-            if ! npm install; then
+             fi
+             echo "Installing dependencies"
+             if ! npm install; then
               echo "Couldn't install packages"
               exit 1
-            fi
-            echo "Restarting Application"
-            if ! npm run start; then
+             fi
+             echo "Restarting Application"
+             if ! npm run start; then
                echo "Couldn't restart application"
                exit 1
-            fi
-            echo "Deployment successful"
+             fi
+             echo "Deployment successful"
 
 
